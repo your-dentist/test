@@ -1,88 +1,65 @@
-<?php include("contactform.php"); ?>
-
 <!DOCTYPE html>
-<html>
-	<head>
-		
-		<title>PHP Email form</title>
-		
-		<meta name ="viewport" content ="width=device-width, initial-scale=1.0"> 
-		
-		<!--Bootstrap CSS CDN-->
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<!---jQuery CDN-->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--  I will use the font awesome icons library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- I will also use a google font that i like -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-	</head>
+	<link rel="stylesheet" href="styles.css"> <!-- link to my stylesheet -->
+	<title>Creating a responsive, working contact form | Full stack tutorial</title>
+</head>
+<body>
 
-	<body>
+	<h2>
+		This is a working demo, enter your email and try it out.		
+	</h2>
+
+	<!-- I need a container to host my contact form, also this container will act
+	as a css grid with two sections -->
+	<div class="contact-section">
+		<!-- In the first section we will have the contact-info -->
+		<div class="contact-info">
+			<h3>Send us your question</h3>
+			<p class="text">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. At porro odio necessitatibus magni molestias nisi hic, provident mollitia praesentium voluptatem nostrum architecto debitis non laborum 
+			</p>
+			<p class="text">
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam consequuntur a eveniet quis esse laboriosam adipisci quasi reiciendis, aut dicta fugiat sed, ad. Esse quis, temporibus, porro impedit eaque eum!
+			</p>
+			<img src="fox.png" alt="">
+		</div>
+
+		<!-- In the second section we will have our contact form -->
+		<form name="contact-form" action="" method="post" autocomplete="off">
+			<!-- Every input field will have his own container. -->
+			<div class="block">
+				<i class="fas fa-user"></i>
+				<input type="text" name="firstname" placeholder="Enter your firstname">
+			</div>
+
+			<div class="block">
+				<i class="fas fa-envelope"></i>
+				<input type="text" name="email" placeholder="Enter your email">
+			</div>
 			
-		<!-- container for Contact-->
-		<div class="container-fluid">
-			<div class ="Contact" id="ContactLink">
-				<h2 class="text-center large-gray-font">Contact</h2>
-				
-				<br/>
-				<br/>
-				
-				<div class="container">
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2">
-							<form class="form-horizontal" role="form" method="post" action="contactform.php">
-								<div class="form-group">
-									<label for="name" class="col-sm-2 control-label">Name</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="<?php echo htmlspecialchars($_POST['name']); ?>">
-										<?php echo "<p class='text-danger'>$errName</p>";?>
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="email" class="col-sm-2 control-label">Email</label>
-									<div class="col-sm-10">
-										<input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="<?php echo htmlspecialchars($_POST['email']); ?>">
-										<?php echo "<p class='text-danger'>$errEmail</p>";?>
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="message" class="col-sm-2 control-label">Message</label>
-									<div class="col-sm-10">
-										<textarea class="form-control" rows="4" name="message"><?php echo htmlspecialchars($_POST['message']);?></textarea>
-										<?php echo "<p class='text-danger'>$errMessage</p>";?>
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="human" class="col-sm-2 control-label">2 + 3 = ?</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control" id="human" name="human" placeholder="Your Answer">
-										<?php echo "<p class='text-danger'>$errHuman</p>";?>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-10 col-sm-offset-2">
-										<input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary">
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-10 col-sm-offset-2">
-										<?php echo $result; ?>	
-									</div>
-								</div>
-							</form> 
-						</div> <!-- ending div for contact form-->
-					</div><!-- ending div for container-->
-				</div><!-- ending div for row -->
-			</div><!-- ending div for contact -->		
-		</div><!-- ending div for contact container-->
-		
-		
+			<div class="block">
+				<i class="fas fa-comment-alt"></i>
+				<textarea name="message" placeholder="Write your message"></textarea>
+			</div>
 
-		<!--Bootstrap Js CDN-->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		
-		
-		
-	</body>
+			<button type="submit">Send message <i class="fas fa-paper-plane"></i></button>
+
+			<p class="please-wait"></p>
+			<p class="error"></p>
+			<p class="success"></p>
+		</form>
+	</div>
+
+	<script src="script.js"></script><!-- link to the javascript file -->
+</body>
 </html>
